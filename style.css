@@ -1,0 +1,254 @@
+/* Estilo do corpo da página */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #e6e6e6;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagem de fundo */
+#background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://media.istockphoto.com/id/1387256339/pt/foto/vibratory-asphalt-roller-compactor-compacting-new-asphalt-pavement-road-service-repairs-the.jpg?s=612x612&w=0&k=20&c=bCvsXtdceGCnoilR--ebEq_3uudm39Vf9SZQQ47BdRU=");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.8; /* Ajustei a transparência para melhorar a legibilidade */
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+#score {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #000000;
+}
+
+#game-board {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1000px;
+  position: relative;
+  z-index: 1;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-container {
+  perspective: 1000px;
+  margin-bottom: 16px;
+}
+
+.card {
+  width: 220px;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efeito de hover nas cartas */
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+.card-back {
+  background-color: #9e9e9e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.card-front {
+  background-color: white;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+
+.card.correct .card-front {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+}
+
+.card.wrong .card-front {
+  background-color: #f44336;
+  color: white;
+  border-color: #b71c1c;
+}
+
+#message {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #4caf50;
+  animation: fadeIn 0.5s ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#add-card-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+#add-card-button:hover {
+  background-color: #388e3c;
+  transform: scale(1.1); /* Efeito de hover no botão */
+}
+
+#add-card-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#add-card-form h2 {
+  margin-top: 0;
+}
+
+#add-card-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+#add-card-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#add-card-form button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+#submit-card-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+#submit-card-button:hover {
+  background-color: #388e3c;
+}
+
+#cancel-card-button {
+  background-color: #f44336;
+  color: white;
+}
+
+#cancel-card-button:hover {
+  background-color: #b71c1c;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  #game-board {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .card {
+    width: 150px;
+    height: 80px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #score {
+    font-size: 16px;
+  }
+
+  #add-card-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}

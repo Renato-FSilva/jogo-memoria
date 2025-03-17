@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Memória - Corredor de Ônibus</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Imagem de fundo -->
+    <div id="background-image"></div>
+
+    <main>
+      <h1>Jogo da Memória - Corredor de Ônibus</h1>
+      <div id="score">
+        Acertos: <span id="match-count">0</span>/<span id="total-pairs">3</span>
+        | Tentativas: <span id="attempt-count">0</span>
+      </div>
+
+      <section id="game-board">
+        <div class="column" id="images-column"></div>
+        <div class="column" id="text-column"></div>
+      </section>
+
+      <!-- Botão para adicionar cartas -->
+      <button id="add-card-button">+</button>
+
+      <!-- Formulário para adicionar novas cartas (inicialmente oculto) -->
+      <div id="add-card-form" class="hidden">
+        <h2>Adicionar Nova Carta</h2>
+        <label for="image-input">Ícone da Carta:</label>
+        <input type="text" id="image-input" placeholder="Ex: 🚚" />
+        <label for="text-input">Texto da Carta:</label>
+        <input
+          type="text"
+          id="text-input"
+          placeholder="Ex: Caminhão de transporte"
+        />
+        <button id="submit-card-button">Adicionar</button>
+        <button id="cancel-card-button">Cancelar</button>
+      </div>
+
+      <div id="message" class="hidden">
+        🎉 Parabéns! Você completou todos os pares! 🎉
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
