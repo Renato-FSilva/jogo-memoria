@@ -66,8 +66,13 @@ h1 {
   cursor: pointer;
 }
 
-.card:hover {
-  transform: scale(1.05); /* Efeito de hover nas cartas */
+/* Remover hover em dispositivos móveis */
+@media (hover: hover) {
+  .card:hover {
+    transform: scale(
+      1.05
+    ); /* Efeito de hover apenas em dispositivos com mouse */
+  }
 }
 
 .card.flipped {
@@ -227,6 +232,14 @@ h1 {
 
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  #score {
+    font-size: 16px;
+  }
+
   #game-board {
     flex-direction: column;
     gap: 20px;
@@ -238,12 +251,12 @@ h1 {
     height: 80px;
   }
 
-  h1 {
-    font-size: 24px;
+  .card-face {
+    font-size: 14px;
   }
 
-  #score {
-    font-size: 16px;
+  .card-back {
+    font-size: 20px;
   }
 
   #add-card-button {

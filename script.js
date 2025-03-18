@@ -55,7 +55,12 @@ function createCards(containerId, cards) {
     cardContainer.appendChild(card);
     container.appendChild(cardContainer);
 
+    // Adiciona suporte a toques
     card.addEventListener("click", () => handleCardClick(card));
+    card.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // Evita comportamentos padrão do toque
+      handleCardClick(card);
+    });
   });
 }
 
